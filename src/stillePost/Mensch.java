@@ -6,7 +6,7 @@ public class Mensch {
     protected Meinung meinung;
 
     public Mensch() {
-        this.meinung = Meinung.KEINE_INFO;
+        this.meinung = Meinung.UNENTSCHLOSSEN;
     }
 
     public Feld waehleNeuesFeld(List<Feld> moeglicheRichtungen, Feld aktuellesFeld) {

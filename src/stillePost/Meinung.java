@@ -3,7 +3,7 @@ package stillePost;
 import java.util.List;
 
 public enum Meinung {
-    HOCHZEIT, KEINE_HOCHZEIT, UNENTSCHLOSSEN, KEINE_INFO;
+    HOCHZEIT, KEINE_HOCHZEIT, UNENTSCHLOSSEN;
 
     public static Meinung meinungsfindung(List<Meinung> meinungen) {
         int hochzeitCount = 0;

@@ -1,37 +1,44 @@
 package stillePost;
 
-import java.util.HashMap;
-import java.util.Map;
+/**
+ * Erstellt Statistik fuer die Ausgabe nach jeder Runde.
+ */
 
 public class Statistik {
-    private int hochzeit;
-    private int keineHochzeit;
-    private int unentschlossen;
-    private int anzahlMenschen;
+    private final int anzahlHochzeit;
+    private final int anzahlKeineHochzeit;
+    private final int anzahlUnentschlossen;
 
-    private double anteil(int anteil) {
-        return 1.0 * anteil / this.anzahlMenschen;
+    public Statistik(int anzahlHochzeit, int anzahlKeineHochzeit, int anzahlUnentschlossen) {
+        this.anzahlHochzeit = anzahlHochzeit;
+        this.anzahlKeineHochzeit = anzahlKeineHochzeit;
+        this.anzahlUnentschlossen = anzahlUnentschlossen;
     }
 
-    private double anteilHochzeit() {
-        return anteil(hochzeit);
+    /**
+     * Errechnet den Prozentanteil der Menschen, die die Meinung HOCHZEIT haben.
+     * @param anzahlMenschen Anzahl der Menschen
+     * @return Prozentanteil der Meinung HOCHZEIT
+     */
+    public double getProzentHochzeit(int anzahlMenschen) {
+        return 100.0 * anzahlHochzeit / anzahlMenschen;
     }
 
-    private double anteilKeineHochzeit() {
-        return anteil(keineHochzeit);
+    /**
+     * Errechnet den Prozentanteil der Menschen, die die Meinung KEINE_HOCHZEIT haben.
+     * @param anzahlMenschen Anzahl der Menschen
+     * @return Prozentanteil der Meinung KEINE_HOCHZEIT
+     */
+    public double getProzentKeineHochzeit(int anzahlMenschen) {
+        return 100.0 * anzahlKeineHochzeit / anzahlMenschen;
     }
 
-    private double anteilUnentschlossen() {
-        return anteil(unentschlossen);
+    /**
+     * Errechnet den Prozentanteil der Menschen, die die Meinung UNENTSCHLOSSEN haben.
+     * @param anzahlMenschen Anzahl der Menschen
+     * @return Prozentanteil der Meinung UNENTSCHLOSSEN
+     */
+    public double getProzentUnentschlossen(int anzahlMenschen) {
+        return 100.0 * anzahlUnentschlossen / anzahlMenschen;
     }
-
-    public Map<Meinung, Double> erstelleStatistik() {
-        Map<Meinung, Double> anteile = new HashMap<>();
-        anteile.put(Meinung.HOCHZEIT, anteilHochzeit());
-        anteile.put(Meinung.KEINE_HOCHZEIT, anteilKeineHochzeit());
-        anteile.put(Meinung.UNENTSCHLOSSEN, anteilUnentschlossen());
-        return anteile;
-    }
-
-
 }
